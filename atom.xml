@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>墨小蛙</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="/"/>
+  <updated>2019-12-27T01:49:01.740Z</updated>
+  <id>/</id>
+  
+  <author>
+    <name>墨小蛙</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web移动端适配之映射关系与视口</title>
+    <link href="/2017/04/17/Web%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E4%B9%8B%E6%98%A0%E5%B0%84%E5%85%B3%E7%B3%BB%E4%B8%8E%E8%A7%86%E5%8F%A3/"/>
+    <id>/2017/04/17/Web移动端适配之映射关系与视口/</id>
+    <published>2017-04-17T01:45:11.000Z</published>
+    <updated>2019-12-27T01:49:01.740Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上一篇讨论移动端适配的时候列出了一些结论，在这里回顾一下其中最重要的几个也就是今天要讨论的几项内容：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在移动端下，设备厂商&amp;amp;浏览器厂商会为网页选定一个default_html_width作为默认html.width，并以此为基础建立“初始缩放”映射关系:default_html_width =&amp;gt; device_width&lt;/li&gt;
+&lt;li&gt;html元素宽度的改变的根本原因在于html宽度的改变&lt;/li&gt;
+&lt;li&gt;移动端用户缩放时不会改变html.width，只会修改映射关系。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;不过在我们谈“初始缩放”之前，我们还是要回顾一下Web中涉及的所有映射关系。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="移动端" scheme="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+      <category term="响应式" scheme="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS模块化规范</title>
+    <link href="/2017/04/16/JS%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83/"/>
+    <id>/2017/04/16/JS模块化规范/</id>
+    <published>2017-04-16T11:54:06.000Z</published>
+    <updated>2019-12-26T09:34:47.903Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;CommonJS&quot;&gt;&lt;a href=&quot;#CommonJS&quot; class=&quot;headerlink&quot; title=&quot;CommonJS&quot;&gt;&lt;/a&gt;CommonJS&lt;/h1&gt;&lt;h2 id=&quot;CommonJS是什么？&quot;&gt;&lt;a href=&quot;#CommonJS是什么？&quot; class=&quot;headerlink&quot; title=&quot;CommonJS是什么？&quot;&gt;&lt;/a&gt;CommonJS是什么？&lt;/h2&gt;&lt;p&gt;JS模块化的规范之一，主要用于非浏览器环境&lt;/p&gt;
+&lt;h2 id=&quot;诞生背景&quot;&gt;&lt;a href=&quot;#诞生背景&quot; class=&quot;headerlink&quot; title=&quot;诞生背景&quot;&gt;&lt;/a&gt;诞生背景&lt;/h2&gt;&lt;p&gt;在非浏览器环境下编程需要良好的模块管理，而且能让每个模块在其自身作用域中执行。&lt;/p&gt;
+&lt;h2 id=&quot;代表应用&quot;&gt;&lt;a href=&quot;#代表应用&quot; class=&quot;headerlink&quot; title=&quot;代表应用&quot;&gt;&lt;/a&gt;代表应用&lt;/h2&gt;&lt;p&gt;Nodejs&lt;/p&gt;
+&lt;h2 id=&quot;核心思路&quot;&gt;&lt;a href=&quot;#核心思路&quot; class=&quot;headerlink&quot; title=&quot;核心思路&quot;&gt;&lt;/a&gt;核心思路&lt;/h2&gt;&lt;p&gt;通过文件组织模块，文件内的定义对模块私有&lt;br&gt;每个模块通过module.exports导出，通过require()导入&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Javascript" scheme="/tags/Javascript/"/>
+    
+      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="模块化" scheme="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web移动端适配基本原理</title>
+    <link href="/2017/04/15/Web%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
+    <id>/2017/04/15/Web移动端适配基本原理/</id>
+    <published>2017-04-15T14:11:03.000Z</published>
+    <updated>2019-12-26T09:34:47.941Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这几天看了一些移动端适配的方案，来写一下这篇讨论。理解可能有欠缺之处，欢迎指出。&lt;/p&gt;
+&lt;h1 id=&quot;从PC端讲起&quot;&gt;&lt;a href=&quot;#从PC端讲起&quot; class=&quot;headerlink&quot; title=&quot;从PC端讲起&quot;&gt;&lt;/a&gt;从PC端讲起&lt;/h1&gt;&lt;p&gt;虽然这篇是总结移动端的，但是考虑到像我这种学习前端的萌新都是从PC端开始练起，所以我们就先来看下在PC端做前端开发的情况。&lt;/p&gt;
+&lt;p&gt;写一个h5页面。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;h1&amp;gt;Hello World!&amp;lt;/h1&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;/image/2017-04-15 22-52-26屏幕截图.jpg&quot; alt=&quot;HelloWorld页面&quot;&gt;&lt;br&gt;什么？这不是HTML入门的第一个页面么？这有什么看头？&lt;/p&gt;
+&lt;p&gt;别急呀，我们现在来看这个页面可不是学标签的。作为一名成长中的前端开发人员，在看到页面的时候要习惯性地问自己一些问题的。比如说对这个页面里，h1到底有多宽?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;解决问题的最有效方法是提出最正确的问题&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="移动端" scheme="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+      <category term="响应式" scheme="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS居中方案</title>
+    <link href="/2017/03/06/CSS%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88/"/>
+    <id>/2017/03/06/CSS居中方案/</id>
+    <published>2017-03-05T21:57:51.000Z</published>
+    <updated>2019-12-26T09:34:47.902Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;垂直居中&quot;&gt;&lt;a href=&quot;#垂直居中&quot; class=&quot;headerlink&quot; title=&quot;垂直居中&quot;&gt;&lt;/a&gt;垂直居中&lt;/h1&gt;&lt;h2 id=&quot;单行小元素、文本、图片&quot;&gt;&lt;a href=&quot;#单行小元素、文本、图片&quot; class=&quot;headerlink&quot; title=&quot;单行小元素、文本、图片&quot;&gt;&lt;/a&gt;单行小元素、文本、图片&lt;/h2&gt;&lt;p&gt;设置line-height&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&amp;lt;div class=&amp;quot;vertical&amp;quot;&amp;gt;content&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;.vertical{
+    line-height: 20px;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;原理：上下半行间距相等&lt;/p&gt;
+&lt;h2 id=&quot;高度固定时&quot;&gt;&lt;a href=&quot;#高度固定时&quot; class=&quot;headerlink&quot; title=&quot;高度固定时&quot;&gt;&lt;/a&gt;高度固定时&lt;/h2&gt;&lt;p&gt;利用绝对定位和负值margin&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="/categories/Tech/"/>
+    
+    
+      <category term="Web" scheme="/tags/Web/"/>
+    
+      <category term="CSS" scheme="/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS常见知识汇总</title>
+    <link href="/2017/03/05/CSS%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"/>
+    <id>/2017/03/05/CSS常见知识汇总/</id>
+    <published>2017-03-05T09:26:43.000Z</published>
+    <updated>2019-12-26T09:34:47.903Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;语法语义&quot;&gt;&lt;a href=&quot;#语法语义&quot; class=&quot;headerlink&quot; title=&quot;语法语义&quot;&gt;&lt;/a&gt;语法语义&lt;/h1&gt;&lt;h2 id=&quot;盒模型-Box-Model&quot;&gt;&lt;a href=&quot;#盒模型-Box-Model&quot; class=&quot;headerlink&quot; title=&quot;盒模型(Box Model)&quot;&gt;&lt;/a&gt;盒模型(Box Model)&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;内容(Content)&lt;br&gt; 内容，背景，颜色，图片&lt;/li&gt;
+&lt;li&gt;内边距(Padding)&lt;br&gt; 背景，颜色，图片&lt;/li&gt;
+&lt;li&gt;边框(Border)&lt;/li&gt;
+&lt;li&gt;外边距(Margin)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;盒类型&quot;&gt;&lt;a href=&quot;#盒类型&quot; class=&quot;headerlink&quot; title=&quot;盒类型&quot;&gt;&lt;/a&gt;盒类型&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;containing boxes: 一个block&lt;/li&gt;
+&lt;li&gt;inline boxes: block中的各个子块，分为非匿名（由行内标签产生）和匿名的（被行内标签分割或由CSS的content属性产生）&lt;/li&gt;
+&lt;li&gt;line boxes: 每一行的文本&lt;/li&gt;
+&lt;li&gt;content area: 围绕文字的盒子，高度由font-size决定&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="/categories/Tech/"/>
+    
+    
+      <category term="Web" scheme="/tags/Web/"/>
+    
+      <category term="CSS" scheme="/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js学习笔记2</title>
+    <link href="/2017/03/04/Node-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+    <id>/2017/03/04/Node-js学习笔记2/</id>
+    <published>2017-03-04T01:49:46.000Z</published>
+    <updated>2019-12-26T09:34:47.937Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;看到《Node.js实战》第三章了，这一部分讲的是Node.js的一些基础原理，挺长的，拆开慢慢看&lt;/p&gt;
+&lt;h1 id=&quot;模块管理&quot;&gt;&lt;a href=&quot;#模块管理&quot; class=&quot;headerlink&quot; title=&quot;模块管理&quot;&gt;&lt;/a&gt;模块管理&lt;/h1&gt;&lt;p&gt;首先是为了让代码结构更加优雅的模块管理，这里书上原图比废话更能解决问题。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;包导出&lt;br&gt; &lt;img src=&quot;/image/nodejs_part3_package_share.png&quot; alt=&quot;包导出&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="/categories/Tech/"/>
+    
+    
+      <category term="Web" scheme="/tags/Web/"/>
+    
+      <category term="Node.js" scheme="/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>又是新的学期</title>
+    <link href="/2017/03/03/%E5%8F%88%E6%98%AF%E6%96%B0%E7%9A%84%E5%AD%A6%E6%9C%9F/"/>
+    <id>/2017/03/03/又是新的学期/</id>
+    <published>2017-03-03T14:33:34.000Z</published>
+    <updated>2020-01-14T01:07:30.477Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一眨眼，就已经到了大三下了，马上就该毕业找工作或者考研了。&lt;/p&gt;
+&lt;p&gt;真是很神奇的一种感觉，好像大学的时间比高中快多了。隐约还记得刚来大学的第一个寒假回高中做回访，那时候高一的萌萌的小孩子们，现在也已经开始备考100天了。&lt;/p&gt;
+&lt;p&gt;很多人说，觉得时间过得快，证明生活的很充实啊。细细想来，其实也没有太充实的感觉。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="/categories/Life/"/>
+    
+    
+      <category term="随笔" scheme="/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js学习笔记1</title>
+    <link href="/2017/03/03/Node-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <id>/2017/03/03/Node-js学习笔记1/</id>
+    <published>2017-03-03T04:33:06.000Z</published>
+    <updated>2019-12-26T09:34:47.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《Node.js实战》的第二章给出了一个Node.js实现的ChatRoom的例子。但是……就像其他很多书上的各种例子，在我的电脑上……跑不通。&lt;/p&gt;
+&lt;p&gt;这就比较尴尬，明明有着npm的Node相对C/Java来说不太应该出现依赖缺失包缺失等问题……但是作为一个更新着的脚本语言，版本不兼容永远是个大坑。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="/categories/Tech/"/>
+    
+    
+      <category term="Web" scheme="/tags/Web/"/>
+    
+      <category term="Node.js" scheme="/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js学习笔记0</title>
+    <link href="/2017/03/02/Node.js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B00/"/>
+    <id>/2017/03/02/Node.js学习笔记0/</id>
+    <published>2017-03-02T13:37:37.000Z</published>
+    <updated>2019-12-26T09:34:47.938Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;春天又要来了，每年春天呢，都是学习新技术的好时候。嗯，虽然这次计划要学的不算是什么很新的技术，但是在这个Web流行的时代大概还是有些用处的吧。&lt;/p&gt;
+&lt;p&gt;Node.js这个玩意儿呢，之前就接触过一些，Express框架也用过一点，但总归是只知道些皮毛而已，所以乘着这段时间的心血来潮，补补这本《Node.js实战》&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="/categories/Tech/"/>
+    
+    
+      <category term="Web" scheme="/tags/Web/"/>
+    
+      <category term="Node.js" scheme="/tags/Node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>REST&amp;RESTful笔记</title>
+    <link href="/2017/02/26/REST-RESTful%E7%AC%94%E8%AE%B0/"/>
+    <id>/2017/02/26/REST-RESTful笔记/</id>
+    <published>2017-02-26T03:58:59.000Z</published>
+    <updated>2019-12-26T09:34:47.939Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;REST&quot;&gt;&lt;a href=&quot;#REST&quot; class=&quot;headerlink&quot; title=&quot;REST&quot;&gt;&lt;/a&gt;REST&lt;/h1&gt;&lt;p&gt;REST(Representational State Transfer)，由Roy Thomas Fielding在2000年的博士论文中提出，是一种互联网软件的&lt;strong&gt;架构原则&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;Resources&quot;&gt;&lt;a href=&quot;#Resources&quot; class=&quot;headerlink&quot; title=&quot;Resources&quot;&gt;&lt;/a&gt;Resources&lt;/h2&gt;&lt;p&gt;Representational的主语为资源，资源是网络上的一个实体。每一个网络上的资源都有一个URI(Uniform Resource Identify)标识。获取资源的过程就是调用其URI。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="/categories/Tech/"/>
+    
+    
+      <category term="Web" scheme="/tags/Web/"/>
+    
+      <category term="REST" scheme="/tags/REST/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebService基础学习</title>
+    <link href="/2017/02/26/WebService%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <id>/2017/02/26/WebService基础学习/</id>
+    <published>2017-02-26T03:56:36.000Z</published>
+    <updated>2019-12-26T09:34:47.940Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;鉴于这次的软件体系结构要交一份WebService的作业，所以顺路记一些学习笔记。&lt;/p&gt;
+&lt;h1 id=&quot;从WebService说起&quot;&gt;&lt;a href=&quot;#从WebService说起&quot; class=&quot;headerlink&quot; title=&quot;从WebService说起&quot;&gt;&lt;/a&gt;从WebService说起&lt;/h1&gt;&lt;p&gt;很久很久很久以前，世界上是没有电脑的。&lt;br&gt;很久很久以前，两台电脑之间是不能通讯的。&lt;br&gt;很久以前，出现了Web，它连接起了不同硬件，不同平台的计算机。&lt;br&gt;于是，人们就开始希望&lt;strong&gt;两台计算机之间的应用程序&lt;/strong&gt;，能够互相通讯，就有了&lt;a href=&quot;https://zh.wikipedia.org/wiki/Web%E6%9C%8D%E5%8A%A1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WebService&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="/categories/Tech/"/>
+    
+    
+      <category term="Web" scheme="/tags/Web/"/>
+    
+      <category term="WebService" scheme="/tags/WebService/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webOptimization</title>
+    <link href="/2017/02/26/webOptimization/"/>
+    <id>/2017/02/26/webOptimization/</id>
+    <published>2017-02-26T03:06:33.000Z</published>
+    <updated>2020-01-14T01:35:11.627Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;压缩源码和图片&quot;&gt;&lt;a href=&quot;#压缩源码和图片&quot; class=&quot;headerlink&quot; title=&quot;压缩源码和图片&quot;&gt;&lt;/a&gt;压缩源码和图片&lt;/h2&gt;&lt;h2 id=&quot;选择合适的图片格式&quot;&gt;&lt;a href=&quot;#选择合适的图片格式&quot; class=&quot;headerlink&quot; title=&quot;选择合适的图片格式&quot;&gt;&lt;/a&gt;选择合适的图片格式&lt;/h2&gt;&lt;h2 id=&quot;合并静态资源&quot;&gt;&lt;a href=&quot;#合并静态资源&quot; class=&quot;headerlink&quot; title=&quot;合并静态资源&quot;&gt;&lt;/a&gt;合并静态资源&lt;/h2&gt;&lt;p&gt;减少HTTP请求&lt;/p&gt;
+&lt;h2 id=&quot;CSS放在头部，Js放在尾部&quot;&gt;&lt;a href=&quot;#CSS放在头部，Js放在尾部&quot; class=&quot;headerlink&quot; title=&quot;CSS放在头部，Js放在尾部&quot;&gt;&lt;/a&gt;CSS放在头部，Js放在尾部&lt;/h2&gt;&lt;p&gt;延迟加载Js（其实也可以放在头部，利用defer=”defer”属性标识延迟，这样子可读性和可维护性更高）&lt;/p&gt;
+&lt;h2 id=&quot;使用CDN&quot;&gt;&lt;a href=&quot;#使用CDN&quot; class=&quot;headerlink&quot; title=&quot;使用CDN&quot;&gt;&lt;/a&gt;使用CDN&lt;/h2&gt;&lt;p&gt;增加并发下载量，和其它网站共享缓存&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="/categories/Tech/"/>
+    
+    
+      <category term="Web" scheme="/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu下NTFS分区挂载失败解决</title>
+    <link href="/2017/02/26/ubuntu%E4%B8%8BNTFS%E5%88%86%E5%8C%BA%E6%8C%82%E8%BD%BD%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3/"/>
+    <id>/2017/02/26/ubuntu下NTFS分区挂载失败解决/</id>
+    <published>2017-02-26T01:04:39.000Z</published>
+    <updated>2020-01-14T01:30:14.945Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;最近一段时间用Linux挂载Windows下的NTFS分区的时候，老是报这个错误&lt;br&gt;&lt;img src=&quot;/image/linux_mount_ntfs_err.png&quot; alt&gt;&lt;br&gt;而且最讨厌的还是时好时不好的&lt;/p&gt;
+&lt;p&gt;今天忍受不了了，Google到了一个解决方案&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;sudo ntfsfix &amp;lt;dev-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;直接把报错的分区修复了&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="/categories/Tech/"/>
+    
+    
+      <category term="Linux" scheme="/tags/Linux/"/>
+    
+  </entry>
+  
+</feed>
