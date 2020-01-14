@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2019-12-27T01:49:01.740Z</updated>
+  <updated>2020-01-14T02:33:04.024Z</updated>
   <id>/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="/2017/04/17/Web%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E4%B9%8B%E6%98%A0%E5%B0%84%E5%85%B3%E7%B3%BB%E4%B8%8E%E8%A7%86%E5%8F%A3/"/>
     <id>/2017/04/17/Web移动端适配之映射关系与视口/</id>
     <published>2017-04-17T01:45:11.000Z</published>
-    <updated>2019-12-27T01:49:01.740Z</updated>
+    <updated>2020-01-14T02:33:04.024Z</updated>
     
     <summary type="html">
     
@@ -49,7 +49,7 @@
     <link href="/2017/04/16/JS%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83/"/>
     <id>/2017/04/16/JS模块化规范/</id>
     <published>2017-04-16T11:54:06.000Z</published>
-    <updated>2019-12-26T09:34:47.903Z</updated>
+    <updated>2020-01-14T02:33:27.634Z</updated>
     
     <summary type="html">
     
@@ -74,7 +74,7 @@
     <link href="/2017/04/15/Web%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
     <id>/2017/04/15/Web移动端适配基本原理/</id>
     <published>2017-04-15T14:11:03.000Z</published>
-    <updated>2019-12-26T09:34:47.941Z</updated>
+    <updated>2020-01-14T02:33:50.020Z</updated>
     
     <summary type="html">
     
@@ -113,7 +113,7 @@
     <link href="/2017/03/06/CSS%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88/"/>
     <id>/2017/03/06/CSS居中方案/</id>
     <published>2017-03-05T21:57:51.000Z</published>
-    <updated>2019-12-26T09:34:47.902Z</updated>
+    <updated>2020-01-14T02:33:24.257Z</updated>
     
     <summary type="html">
     
@@ -129,7 +129,7 @@
     
     </summary>
     
-      <category term="Tech" scheme="/categories/Tech/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="Web" scheme="/tags/Web/"/>
@@ -143,7 +143,7 @@
     <link href="/2017/03/05/CSS%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"/>
     <id>/2017/03/05/CSS常见知识汇总/</id>
     <published>2017-03-05T09:26:43.000Z</published>
-    <updated>2019-12-26T09:34:47.903Z</updated>
+    <updated>2020-01-14T02:33:18.234Z</updated>
     
     <summary type="html">
     
@@ -162,7 +162,7 @@
     
     </summary>
     
-      <category term="Tech" scheme="/categories/Tech/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="Web" scheme="/tags/Web/"/>
@@ -176,7 +176,7 @@
     <link href="/2017/03/04/Node-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
     <id>/2017/03/04/Node-js学习笔记2/</id>
     <published>2017-03-04T01:49:46.000Z</published>
-    <updated>2019-12-26T09:34:47.937Z</updated>
+    <updated>2020-01-14T02:33:34.898Z</updated>
     
     <summary type="html">
     
@@ -188,7 +188,7 @@
     
     </summary>
     
-      <category term="Tech" scheme="/categories/Tech/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="Web" scheme="/tags/Web/"/>
@@ -202,7 +202,7 @@
     <link href="/2017/03/03/%E5%8F%88%E6%98%AF%E6%96%B0%E7%9A%84%E5%AD%A6%E6%9C%9F/"/>
     <id>/2017/03/03/又是新的学期/</id>
     <published>2017-03-03T14:33:34.000Z</published>
-    <updated>2020-01-14T01:07:30.477Z</updated>
+    <updated>2020-01-14T02:33:14.562Z</updated>
     
     <summary type="html">
     
@@ -212,7 +212,7 @@
     
     </summary>
     
-      <category term="Life" scheme="/categories/Life/"/>
+      <category term="生活" scheme="/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
       <category term="随笔" scheme="/tags/%E9%9A%8F%E7%AC%94/"/>
@@ -224,7 +224,7 @@
     <link href="/2017/03/03/Node-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
     <id>/2017/03/03/Node-js学习笔记1/</id>
     <published>2017-03-03T04:33:06.000Z</published>
-    <updated>2019-12-26T09:34:47.904Z</updated>
+    <updated>2020-01-14T02:33:31.844Z</updated>
     
     <summary type="html">
     
@@ -233,7 +233,7 @@
     
     </summary>
     
-      <category term="Tech" scheme="/categories/Tech/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="Web" scheme="/tags/Web/"/>
@@ -247,7 +247,7 @@
     <link href="/2017/03/02/Node.js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B00/"/>
     <id>/2017/03/02/Node.js学习笔记0/</id>
     <published>2017-03-02T13:37:37.000Z</published>
-    <updated>2019-12-26T09:34:47.938Z</updated>
+    <updated>2020-01-14T02:33:38.364Z</updated>
     
     <summary type="html">
     
@@ -256,7 +256,7 @@
     
     </summary>
     
-      <category term="Tech" scheme="/categories/Tech/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="Web" scheme="/tags/Web/"/>
@@ -270,7 +270,7 @@
     <link href="/2017/02/26/REST-RESTful%E7%AC%94%E8%AE%B0/"/>
     <id>/2017/02/26/REST-RESTful笔记/</id>
     <published>2017-02-26T03:58:59.000Z</published>
-    <updated>2019-12-26T09:34:47.939Z</updated>
+    <updated>2020-01-14T02:33:41.844Z</updated>
     
     <summary type="html">
     
@@ -279,7 +279,7 @@
     
     </summary>
     
-      <category term="Tech" scheme="/categories/Tech/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="Web" scheme="/tags/Web/"/>
@@ -293,7 +293,7 @@
     <link href="/2017/02/26/WebService%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     <id>/2017/02/26/WebService基础学习/</id>
     <published>2017-02-26T03:56:36.000Z</published>
-    <updated>2019-12-26T09:34:47.940Z</updated>
+    <updated>2020-01-14T02:34:46.719Z</updated>
     
     <summary type="html">
     
@@ -302,7 +302,7 @@
     
     </summary>
     
-      <category term="Tech" scheme="/categories/Tech/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="Web" scheme="/tags/Web/"/>
@@ -316,7 +316,7 @@
     <link href="/2017/02/26/webOptimization/"/>
     <id>/2017/02/26/webOptimization/</id>
     <published>2017-02-26T03:06:33.000Z</published>
-    <updated>2020-01-14T01:35:11.627Z</updated>
+    <updated>2020-01-14T02:33:55.753Z</updated>
     
     <summary type="html">
     
@@ -326,7 +326,7 @@
     
     </summary>
     
-      <category term="Tech" scheme="/categories/Tech/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="Web" scheme="/tags/Web/"/>
@@ -338,7 +338,7 @@
     <link href="/2017/02/26/ubuntu%E4%B8%8BNTFS%E5%88%86%E5%8C%BA%E6%8C%82%E8%BD%BD%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3/"/>
     <id>/2017/02/26/ubuntu下NTFS分区挂载失败解决/</id>
     <published>2017-02-26T01:04:39.000Z</published>
-    <updated>2020-01-14T01:30:14.945Z</updated>
+    <updated>2020-01-14T02:33:46.167Z</updated>
     
     <summary type="html">
     
@@ -350,7 +350,7 @@
     
     </summary>
     
-      <category term="Tech" scheme="/categories/Tech/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="Linux" scheme="/tags/Linux/"/>

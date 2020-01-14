@@ -8,7 +8,7 @@
     
         <title itemprop="name">
             
-                Node.js学习笔记2 |
+                Category: 生活 |
                     
                         墨小蛙
         </title>
@@ -439,278 +439,105 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+      
 <div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/upload/nodejs.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/upload/nodejs.jpg">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      Node.js学习笔记2</h1>
-      <p class="entry-census">
-        <span>
-          <a href="">
-            <img src="">
-          </a>
-        </span>
-        <span>
-          <a href=""></a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2017-3-4<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
+<div class="pattern-center ">
+  <div class="pattern-attachment-img">
+    <img data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/writing.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
   </div>
-
+  <header class="pattern-header ">
+    <h1 class="cat-title">生活</h1>
+    <span class="cat-des">
+      <p>live</p>
+    </span>
+  </header>
+</div>
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <p>看到《Node.js实战》第三章了，这一部分讲的是Node.js的一些基础原理，挺长的，拆开慢慢看</p>
-<h1 id="模块管理"><a href="#模块管理" class="headerlink" title="模块管理"></a>模块管理</h1><p>首先是为了让代码结构更加优雅的模块管理，这里书上原图比废话更能解决问题。</p>
-<ol>
-<li>包导出<br> <img src="/image/nodejs_part3_package_share.png" alt="包导出"></li>
-</ol>
-<a id="more"></a>
-<ol start="2">
-<li>包查找<br> <img src="/image/nodejs_part3_package_find.png" alt="包查找"></li>
-<li>包入口<br> <img src="/image/nodejs_part3_package_enter.png" alt="包入口"></li>
-</ol>
-<h1 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h1><p>然后知道怎么组织代码了，就来看Node.js的卖点异步编程吧。异步编程呢在Node里主要用两种方式实现。</p>
-<ol>
-<li>回调（一般为一次性逻辑）</li>
-<li>事件监听器（一般为重复性逻辑）</li>
-</ol>
-<h2 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h2><p>这个其实很好理解，就是说我告诉程序这个异步操作你先做着，我也不管你做多久（当然，太久的话有时候还是该管的……），我也暂时不管你得到什么结果，总之你做完这件事儿就去给我执行另一个函数就好了。</p>
-<h2 id="事件发射器"><a href="#事件发射器" class="headerlink" title="事件发射器"></a>事件发射器</h2><p>这个其实做过点GUI编程的多少都该理解点意思，就是说平时没事儿干，就等事件（或者干点别的常规事务），然后来了事件，就响应它。</p>
-<p>然后书中一开始实现了《UNIX网络编程》里的echo服务器……展示了一下Node的简洁性。</p>
-<p>再然后，就出问题了……它基于net包实现了一个命令行上的聊天室。然而抄完代码，运行……嗯哼？每个客户自己发消息挺嗨，然而其它客户端就是不显示……忧伤。</p>
-<p>用输出查了一下，是这里出的问题</p>
-<pre><code class="js">var server = net.createServer(function(client)){
-    /* Some code here */
-    client.on(&#39;connect&#39;, function(){
-        //这个回调函数从来没触发过……
-        channel.emit(&#39;join&#39;, id, client);
-    });
-    /* Some code here */
-}
-</code></pre>
-<p>几个意思……明明连接都是成功的呀。</p>
-<p>顺手stackoverflow一下，找到了两个解答</p>
-<ol>
-<li><a href="http://stackoverflow.com/questions/19342910/when-is-the-connect-event-in-nodejs-net-module-emitted" target="_blank" rel="noopener">Node js net event : connect vs connection</a></li>
-<li><a href="http://stackoverflow.com/questions/19342910/when-is-the-connect-event-in-nodejs-net-module-emitted" target="_blank" rel="noopener">when is the ‘connect’ event in nodejs net module emitted?</a></li>
-</ol>
-<p>其实这俩说了一个意思，就是net.createServer这个函数的回调响应的时候，其实已经完成了connection的事件了，其实这就相当于是在写</p>
-<pre><code class="js">var server.on(&#39;connection&#39;, function(client)){
-    /* Some code here */
-    client.on(&#39;connect&#39;, function(){
-        //这个回调函数从来没触发过……
-        channel.emit(&#39;join&#39;, id, client);
-    });
-    /* Some code here */
-}
-</code></pre>
-<p>能等到这个事件才怪orz……<br>所以把代码改成</p>
-<pre><code class="js">var server = net.createServer(function(client)){
-    /* Some code here */
-    //直接emit就好，这时候已经完成connect了
-    channel.emit(&#39;join&#39;, id, client);
-    /* Some code here */
-}
-</code></pre>
-<p>然后自己还犯了个错误，把退出的时候触发的leave事件写到了join事件中</p>
-<pre><code class="js">channel.on(&#39;join&#39;, function(id, client)){
-    /* Some code here */
-    channel.on(&#39;leave&#39;, function(id)){
-        channel.removeListener(&#39;broadcast&#39;, this.subscriptions[id]);
-        channel.emit(&#39;broadcast&#39;, id, id + &quot; has left the chat\n&quot;);
-    }
-}
-</code></pre>
-<p>结果……一个客户端断开连接，每个客户都会触发一次退出消息的emit……场面一度很混乱orz……</p>
-<h1 id="异步编程中的坑"><a href="#异步编程中的坑" class="headerlink" title="异步编程中的坑"></a>异步编程中的坑</h1><p>前面我们说了，异步编程很好很快很方便。然而事情总是有两面性的，异步是方便了，然而需要同步协调的时序任务就有点麻烦了。<br>当然面对时序任务的话，完全可以不用Node平台（本来就不是它的强项）。但是人总是爱偷懒得，与其换个平台再配置一堆环境，还不如强行让Node支持时序处理，所以就有了以下解决方案。</p>
-<h2 id="串行任务"><a href="#串行任务" class="headerlink" title="串行任务"></a>串行任务</h2><p>对于串行任务，把需要串行的异步函数放进一个数组里，然后每个异步任务结束前（即回调函数触发时），调用一个调度函数进行调度。</p>
-<pre><code class="js">function func0(arg){
-    /* Some code here */
-    async0(arg0, function(err, res){
-        if(err) next(err);
-        next(null, res)
-    });
-}
-function func1(arg){
-    /* Some code here */
-    async1(arg0, function(err, res){
-        if(err) next(err);
-        next(null, res)
-    });
-}
-/* Many tasks ... */
-tasks = [
-    func0,
-    func1,
-    /* Many tasks ... */
-];
-
-function next(err, arg){
-    if(err){
-        /* Handle error */
-    }
-    var task = tasks.shift();
-    if(task){
-        task(arg);
-    }
-}
-
-next(arg);
-</code></pre>
-<p>其实非要连着嵌套回调函数也可以，但是上面这种管理方法，更容易扩展和修改。</p>
-<h2 id="并行任务"><a href="#并行任务" class="headerlink" title="并行任务"></a>并行任务</h2><p>对于并行任务，把需要并行的异步函数放进一个数组里，然后每个异步任务结束前（即回调函数触发时），调用一个计数任务完成情况的函数。</p>
-<pre><code class="js">function func0(){
-    /* Some code here */
-    async0(arg0, function(err, res){
-        if(err) { /* Handle err */ }
-        checkFinished()
-    });
-}
-function func1(){
-    /* Some code here */
-    async1(arg0, function(err, res){
-        if(err) { /* Handle err */ }
-        checkFinished()
-    });
-}
-/* Many tasks ... */
-tasks = [
-    func0,
-    func1,
-    /* Many tasks ... */
-];
-
-var tasksFinished = 0;
-
-function checkFinished(){
-    ++tasksFinished;
-    if(tasksFinished == tasks.length){
-        //并行任务全部完成
-    }
-}
-
-function run(){
-    for(var task in tasks){
-        task();
-    }
-}
-
-run();
-</code></pre>
-
-        </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏
-            <div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/custom/donate/AliPayQR.jpg"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/custom/donate/WeChanQR.jpg"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2017/03/05/CSS常见知识汇总/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/upload/css.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/upload/css.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                CSS常见知识汇总</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2017/03/03/又是新的学期/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/upload/university.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/upload/university.jpg">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                又是新的学期</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
       
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "t6whCN1b96a2XW5eN358hXOC-gzGzoHsz",
-        appKey: "kigfqfKhjVJ0LsaGBKPCowxC",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
-
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
-            </h3>
-          </div>
+  <!-- 首页默认取最最新文章集 -->
+  
+    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2017/03/03/又是新的学期/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
         </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i></p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/upload/university.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2017/03/03/又是新的学期/">
+    又是新的学期</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2017-3-3</div>
+    <p>
+    </p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2017/03/03/又是新的学期/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
+
+
+      <div class="clearer">
+      </div>
+    </main>
+    <!--  -->
+    
+  </div>
 </div>
 
+<!-- 
+  
+    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2017/03/03/又是新的学期/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
+        </div>
+        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/inksmallfrog/cdn@master/img/upload/university.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2017/03/03/又是新的学期/">
+    又是新的学期</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2017-3-3</div>
+    <p>
+    </p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2017/03/03/又是新的学期/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
 
-
+ -->
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
