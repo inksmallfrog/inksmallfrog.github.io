@@ -1081,6 +1081,14 @@ textarea {
     line-height: 1.5
 }
 
+.post,
+.post button,
+.post input,
+.post select,
+.post textarea {
+    font-size: 20px;
+}
+
 h1,
 h2,
 h3,
@@ -1104,17 +1112,18 @@ i {
 
 blockquote {
     margin: 0;
-    padding: 30px 60px;
-    margin: 10px 0;
-    position: relative
+    padding: 20px 60px;
+    position: relative;
+    background: rgba(255, 135, 135, 0.1);
+    margin: 20px 0;
 }
 
 blockquote:before {
     content: "\f10d" !important;
     font-size: 2rem;
     position: absolute;
-    top: 25px;
-    left: 12px;
+    top: -10px;
+    left: -5px;
     color: orange;
     font-family: FontAwesome
 }
@@ -3640,6 +3649,10 @@ h3#comments-list-title {
 
 .hentry {
     margin: 0 0 1.5em
+}
+
+.post {
+    margin: 0 3em 1.5em 1em
 }
 
 .byline,
@@ -9280,10 +9293,10 @@ td.hljs-ln-numbers {
     width: 200px;
     height: auto;
     z-index: 98;
-    background-color: rgba(126,
-    126,
-    126,
-    0.6);
+    background-color: rgba(256,
+    256,
+    256,
+    0.0);
     transform: translateX(0);
     right: 20px;
     top:10px;

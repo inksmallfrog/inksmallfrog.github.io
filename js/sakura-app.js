@@ -245,39 +245,39 @@ mashiro_global.font_control = new function() {
 mashiro_global.font_control.ini()
 
 function code_highlight_style() {
-    // function gen_top_bar (i) {
-    //   var attributes = {
-    //     'autocomplete': 'off',
-    //     'autocorrect': 'off',
-    //     'autocapitalize': 'off',
-    //     'spellcheck': 'false',
-    //     'contenteditable': 'false',
-    //     'design': 'by hojun'
-    //   }
-    //   var ele_name = $('pre:eq(' + i + ')')[0].children[0].className
-    //   var lang = ele_name.substr(0, ele_name.indexOf(' ')).replace('language-', '')
-    //   if (lang.toLowerCase() == 'hljs') var lang = 'text'
-    //   if (lang.toLowerCase() == 'js') var lang = 'javascript'
-    //   if (lang.toLowerCase() == 'md') var lang = 'markdown'
-    //   if (lang.toLowerCase() == 'py') var lang = 'python'
-    //   $('pre:eq(' + i + ')').addClass('highlight-wrap')
-    //   for (var t in attributes) {
-    //     $('pre:eq(' + i + ')').attr(t, attributes[t])
-    //   }
-    //   $('pre:eq(' + i + ') code').attr('data-rel', lang.toUpperCase())
-    // }
-    // $('pre code').each(function (i, block) {
-    //   hljs.highlightBlock(block)
-    // })
-    // for (var i = 0; i < $('article pre').length; i++) {
-    //   gen_top_bar(i)
-    // }
-    // $('pre').on('click', function (e) {
-    //   if (e.target !== this) return
-    //   $(this).toggleClass('code-block-fullscreen')
-    //   $('html').toggleClass('code-block-fullscreen-html-scroll')
-    // })
-    // hljs.initLineNumbersOnLoad()
+    function gen_top_bar(i) {
+        var attributes = {
+            'autocomplete': 'off',
+            'autocorrect': 'off',
+            'autocapitalize': 'off',
+            'spellcheck': 'false',
+            'contenteditable': 'false',
+            'design': 'by hojun'
+        }
+        var ele_name = $('pre:eq(' + i + ')')[0].children[0].className
+        var lang = ele_name.substr(0, ele_name.indexOf(' ')).replace('language-', '')
+        if (lang.toLowerCase() == 'hljs') var lang = 'text'
+        if (lang.toLowerCase() == 'js') var lang = 'javascript'
+        if (lang.toLowerCase() == 'md') var lang = 'markdown'
+        if (lang.toLowerCase() == 'py') var lang = 'python'
+        $('pre:eq(' + i + ')').addClass('highlight-wrap')
+        for (var t in attributes) {
+            $('pre:eq(' + i + ')').attr(t, attributes[t])
+        }
+        $('pre:eq(' + i + ') code').attr('data-rel', lang.toUpperCase())
+    }
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block)
+    })
+    for (var i = 0; i < $('article pre').length; i++) {
+        gen_top_bar(i)
+    }
+    $('pre').on('click', function(e) {
+        if (e.target !== this) return
+        $(this).toggleClass('code-block-fullscreen')
+        $('html').toggleClass('code-block-fullscreen-html-scroll')
+    })
+    hljs.initLineNumbersOnLoad()
 }
 try {
     code_highlight_style()
